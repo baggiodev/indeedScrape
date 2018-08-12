@@ -10,10 +10,8 @@ axios.get("https://www.indeed.jobs/career/Home#locations").then(function(res) {
     let cvs = "";
     $(".mosaicImageLinksItem").each(function(i,e){
         let cvs
-        // console.log(i);
         let href = e.attribs.href;
         let span = $(this).children("span").text();
-        // console.log(`href: ${href} span: ${span}`);
         axios.get(href).then(function(res){
             let $ = cheerio.load(res.data);
             function parseIT(nextHref){
@@ -32,12 +30,7 @@ axios.get("https://www.indeed.jobs/career/Home#locations").then(function(res) {
                         title = title.trim()
                         title = title.slice(0,-1);
                         title = title.trim()
-                        // console.log("original: "+text);
-                        // console.log("title: "+title);
-                        // console.log("location: "+location);
-                        // console.log("href: "+href)
                         cvs = `${title}, ${href}, ${location}\n`
-                        // console.log(cvs);
                         fs.appendFile("jobs.csv",cvs,function(err){
                             if (err) throw err
                         });
@@ -54,7 +47,7 @@ axios.get("https://www.indeed.jobs/career/Home#locations").then(function(res) {
                 let nextHref = $(".listPagination").children("a:contains('Next')").attr("href")
                 parseIT(nextHref)
             }else{
-                //console.log("Done");
+                console.log("Done");
             }
             $(".listSingleColumnItem").each(function(index,element){
                 let href = $(this).children().children().attr("href");
@@ -67,12 +60,7 @@ axios.get("https://www.indeed.jobs/career/Home#locations").then(function(res) {
                 title = title.trim()
                 title = title.slice(0,-1);
                 title = title.trim()
-                // console.log("original: "+text);
-                // console.log("title: "+title);
-                // console.log("location: "+location);
-                // console.log("href: "+href)
                 cvs = `${title}, ${href}, ${location}\n`
-                // console.log(cvs);
                 fs.appendFile("jobs.csv",cvs,function(err){
                     if (err) throw err
                 });
