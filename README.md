@@ -3,7 +3,7 @@ Creates a CSV(Comma-separated values) file based off of [Indeed's locations](htt
 
 ## Installation:
 ```
-yarn add/npm install
+[yarn/npm] install
 node app.js
 ```
 
