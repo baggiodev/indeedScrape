@@ -1,6 +1,11 @@
 # indeedScrape
 Creates a CSV(Comma-separated values) file based off of [Indeed's locations](https://www.indeed.jobs/career/Home#locations)
 
+## Example:
+```
+Account Executive  Acquisition (Staffing), https://www.indeed.jobs/career/JobDetail/Account-Executive-Acquisition-Staffing-/10893,  New York City
+```
+
 ## Installation:
 ```
 [yarn/npm] install
